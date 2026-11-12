@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axl Sean - Christening & 1st Birthday</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background: linear-gradient(135deg, #07131a 0%, #0b251d 50%, #123524 100%);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .floating-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .float-item {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 30px;
+            height: 30px;
+            background: rgba(156, 204, 101, 0.15);
+            bottom: -150px;
+            animation: animateFloat 15s linear infinite;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .float-item:nth-child(1) { left: 10%; width: 40px; height: 40px; animation-duration: 12s; animation-delay: 0s; }
+        .float-item:nth-child(2) { left: 25%; width: 35px; height: 35px; animation-duration: 18s; animation-delay: 2s; }
+        .float-item:nth-child(3) { left: 40%; width: 50px; height: 50px; animation-duration: 14s; animation-delay: 4s; }
+        .float-item:nth-child(5) { left: 70%; width: 45px; height: 45px; animation-duration: 16s; animation-delay: 1s; }
+        .float-item:nth-child(6) { left: 85%; width: 35px; height: 35px; animation-duration: 11s; animation-delay: 3s; }
+
+        @keyframes animateFloat {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            80% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .card-container {
+            background: rgba(17, 40, 54, 0.85);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 500px;
+            padding: 35px 25px;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            border: 2px solid rgba(156, 204, 101, 0.4);
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .envelope-box { padding: 40px 10px; }
+        .envelope-icon { font-size: 5rem; margin-bottom: 15px; animation: bounce 1.5s infinite; }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.8rem;
+            color: #9ccc65;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .intro-desc { font-size: 0.95rem; color: #d1d8e0; margin-bottom: 25px; }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            border: 4px solid #9ccc65;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(156, 204, 101, 0.4);
+        }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .celebrant-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.2rem;
+            color: #9ccc65;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 8px rgba(156, 204, 101, 0.4);
+        }
+        .event-sub {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #a4c639;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .bible-text {
+            font-size: 0.85rem;
+            color: #b0bec5;
+            font-style: italic;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .ninong-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px dashed rgba(156, 204, 101, 0.5);
+            padding: 25px 20px;
+            border-radius: 16px;
+        }
+        .ninong-card p {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        input[type="text"] {
+            width: 90%;
+            padding: 12px 15px;
+            border-radius: 25px;
+            border: 1px solid #9ccc65;
+            background: rgba(0,0,0,0.4);
+            color: #fff;
+            text-align: center;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+        input[type="text"]::placeholder { color: #888; }
+
+        .celebration-box { padding: 30px 10px; }
+        .dancing-dino { font-size: 5rem; animation: dance 0.8s infinite alternate; margin-bottom: 15px; }
+        @keyframes dance {
+            0% { transform: rotate(-10deg) scale(1); }
+            100% { transform: rotate(10deg) scale(1.1); }
+        }
+        .thankyou-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.8rem;
+            color: #9ccc65;
+            margin-bottom: 10px;
+        }
+
+        .btn-main {
+            background-color: #9ccc65;
+            color: #07131a;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(156, 204, 101, 0.3);
+            transition: 0.3s;
+        }
+        .btn-main:hover { background-color: #b2dfdb; transform: translateY(-2px); }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+        .btn-choice {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .btn-accept {
+            background-color: #9ccc65;
+            color: #07131a;
+            box-shadow: 0 4px 10px rgba(156, 204, 101, 0.3);
+        }
+        .btn-accept:hover { background-color: #b2dfdb; }
+
+        .btn-decline {
+            background-color: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #aaa;
+        }
+        .btn-decline:hover { border-color: #fff; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <ul class="floating-bg">
+        <li class="float-item">🦖</li>
+        <li class="float-item">🌿</li>
+        <li class="float-item">🦕</li>
+        <li class="float-item">🍃</li>
+        <li class="float-item">🦖</li>
+        <li class="float-item">🌿</li>
+    </ul>
+
+    <div class="card-container">
+
+        <div id="page1" class="page active">
+            <div class="envelope-box">
+                <div class="envelope-icon">💌</div>
+                <h2>YOU'RE INVITED!</h2>
+                <p class="intro-desc"> A special invitation for the celebration of Axl Sean's christening and first birthday.</p>
+                <button class="btn-main" onclick="nextPage(2)">Open Invitation✨</button>
+            </div>
+        </div>
+
+        <div id="page2" class="page">
+            <div class="photo-frame">
+                <img src="axlphoto.jpg" alt="Axl Sean">
+            </div>
+            <div class="event-sub">Christening & 1st Birthday</div>
+            <div class="celebrant-title">AXL SEAN</div>
+            <p class="bible-text">
+                "I can do all things through Christ who strengthens me."<br>— Philippians 4:13
+            </p>
+            <button class="btn-main" onclick="nextPage(3)">NEXT</button>
+        </div>
+
+        <div id="page3" class="page">
+            <div class="ninong-card">
+                <p>Would you do us the honor of being Axl Sean’s Ninong / Ninang?</p>
+                <input type="text" id="guestName" placeholder="Enter your full name here" required>
+                
+                <div class="btn-group">
+                    <button class="btn-choice btn-accept" onclick="sendResponse('Accepted')">Yes, Accept! 🎉</button>
+                    <button class="btn-choice btn-decline" onclick="sendResponse('Declined')">Decline</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="page4" class="page">
+            <div class="celebration-box">
+                <div class="dancing-dino">💚</div>
+                <div class="thankyou-title">THANK YOU SO MUCH!</div>
+                <p class="intro-desc" id="successMsg">Your response has been recorded. Thank you for your love and support for Axl Sean!</p>
+                <button class="btn-main" onclick="location.reload()">View Again ↺</button>
+            </div>
+        </div>
+
+        <div id="page5" class="page">
+            <div class="celebration-box">
+                <div class="dancing-dino">💚</div>
+                <div class="thankyou-title">THANK YOU FOR YOUR TIME!</div>
+                <p class="intro-desc" id="declineMsg">Your response has been recorded. Thank you for your time and consideration for Axl Sean!</p>
+                <button class="btn-main" onclick="location.reload()">View Again ↺</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function nextPage(pageNum) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page' + pageNum).classList.add('active');
+        }
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxszbtgWp1cz7cDuzng-dGOsLUQO4Prwfc9fV02_MrQfXMkjCkuNbxPN-4LCJvNXlNi/exec';
+
+        function sendResponse(status) {
+            const name = document.getElementById('guestName').value.trim();
+            if(!name) {
+                alert('Please enter your name first!');
+                return;
+            }
+
+            const data = { name: name, status: status };
+
+            handleRedirect(status, name);
+
+            fetch(scriptURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(data)
+            })
+            .catch(error => {
+                console.error('Error!', error);
+            });
+        }
+
+        function handleRedirect(status, name) {
+            if (status === 'Accepted') {
+                document.getElementById('successMsg').innerText = `Thank you so much, ${name}! You are now on the list of mentors for Axl Sean.`;
+                nextPage(4);
+            } else {
+                document.getElementById('declineMsg').innerText = `Thank you for your time, ${name}! We understand. See you next time!`;
+                nextPage(5);
+            }
+        }
+    </script>
+
+</body>
+</html>
